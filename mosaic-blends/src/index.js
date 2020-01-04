@@ -1,10 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { render } from "react-dom";
+import Layout from "./partials/Layout";
+import { BrowserRouter as Router } from "react-router-dom";
 
+const styles = {
+    fontFamily: "sans-serif",
+    textAlign: "center"
+  };
 
+const App = () => (
+    <div style={styles}>
+      <Router>
+        <Layout />
+      </Router>
+    </div>
+  );
 
-ReactDOM.render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"));
 

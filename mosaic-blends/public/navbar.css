@@ -1,0 +1,114 @@
+body {
+    background-color: white;
+    margin: 0% !important;
+    padding: 0%;
+    width: 100%;
+  }
+  .mainTitle {
+    color: black !important;
+  }
+  a {
+    color: black !important;
+  }
+  .navHome {
+    color: rgb(29, 27, 27) !important;
+    background-color: rgb(253, 253, 253);
+    font-family: cursive;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+  }
+  /* .navHome {
+    color: white !important;
+    background-color: rgb(9, 165, 92);
+  } */
+  .navbar-brand {
+    color: black;
+    font-family: cursive;
+    font-size: xx-large;
+    padding-left: 5%;
+    width: 100%;
+  }
+  .subNavHome {
+    margin: 0%;
+    padding: 0%;
+    height: 4vw;
+    width: 100vw;
+    color: rgb(0, 0, 0);
+    background-color: rgb(158, 149, 132);
+    font-size: 20px;
+    padding-left: 3.5%;
+  }
+  .white {
+    color: white !important;
+  }
+  .footerContainer {
+    width: 70vw;
+    height: 250px;
+    padding: 15px;
+    margin: 0 0 1px 16px;
+    color: #6b5e51;
+    padding-top: 3px;
+    background-color: #f9f7f4;
+    margin-top: 80px !important;
+  }
+  .footerBox {
+    background-color: rgb(54, 99, 32);
+    height: 16vh;
+    color: white;
+  }
+  .iconGrid {
+    display: flex;
+  }
+  .subtext {
+    font-size: 14px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .quickView {
+    color: #524940;
+    font-size: 16px;
+    padding-left: 42px;
+  }
+  
+  .container {
+    /* padding: 5%; */
+    font-family: "cnx-medium", Arial, sans-serif;
+    color: black;
+    width: 100vw;
+    margin: 0%;
+    padding: 0%;
+  }
+  .row {
+    width: 100%;
+  }
+  
+  .headerSection {
+    color: #524940;
+    font-size: 16px;
+    overflow: hidden;
+    padding-top: 20px;
+    padding-right: 5px;
+    border-bottom: 3px solid #0052c2;
+  }
+  
+  .icon {
+    font-size: 35px;
+  }
+  .iconBox {
+    padding: 15px;
+    background-color: #fff;
+    margin-right: 5px;
+    width: 200px;
+    text-align: center;
+  }
+  .iconBox:hover {
+    background-color: lightgrey;
+  }
+  .navMenu {
+    text-align: right;
+    align-content: flex-end;
+    padding-right: 0%;
+    margin-right: 0%;
+  }
+  
