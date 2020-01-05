@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import './Register.css';
 // import { Link } from 'react-router-dom';
-import { Form, Button, Col, } from "react-bootstrap";
+import { Form, Button, Col } from "react-bootstrap";
 
 
 class Register extends Component {
@@ -27,7 +27,7 @@ class Register extends Component {
             const name = target.name;
             this.setState ({
                 [name]: value
-            })
+            });
         }
 
         // submitAccount = () => {
@@ -52,10 +52,22 @@ createAccount(e) {
             email: self.state.email,
             password: self.state.password
     }
-
-    fetch("http://localhost:9000/users/", {
-        method: "POST",
-        body: JSON.stringify(data)
+    
+    var formBody = [];
+    for (var property in data) {
+      var encodedKey = encodeURIComponent(property);
+      var encodedValue = encodeURIComponent(data[property]);
+      formBody.push(encodedKey + "=" + encodedValue);
+    }
+    formBody = formBody.join("&");
+    
+    fetch('http://localhost:9000/users/', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: formBody
     })
     .then((response) => response.json())
     .then((data) => {
@@ -88,12 +100,12 @@ render() {
 
                 <Form.Group controlId="formGridEmail">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="text" name="email" onChange={this.handleChange} placeholder="Email" />
+                    <Form.Control type="email" name="email" onChange={this.handleChange} placeholder="Email" />
                 </Form.Group>
 
                 <Form.Group controlId="formGridPassword">
                     <Form.Label>password</Form.Label>
-                    <Form.Control type="text" name="password" onChange={this.handleChange} placeholder="password" />
+                    <Form.Control type="password" name="password" onChange={this.handleChange} placeholder="password" />
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
