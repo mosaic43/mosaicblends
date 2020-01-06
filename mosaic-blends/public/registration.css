@@ -1,0 +1,21 @@
+.registrationContainer {
+    /* background-color: #f0dff6; */
+    background-color: #f0dff6;
+    height: 70vh !important;
+    width: 50vw !important;
+    opacity: 0.9 !important;
+    position: absolute;
+    border-radius: 15px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+  }
+.email {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.name {
+    margin-right: 5%;
+    margin-left: 5%;
+}

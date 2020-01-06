@@ -8,13 +8,45 @@
     top: 50%;
     transform: translate(-50%, -50%);
     padding: 15px;
+    border-radius: 15px;
   }
-  
+  .btn {
+    width: 80px;
+  }
+  .title {
+    font-size: 28px;
+    font-family: cursive !important;
+  }
+  .listItem {
+    list-style-type: none;
+  }
+  .oiltype {
+    font-weight: 600;
+    color: darkolivegreen;
+  }
+  .blendname {
+    font-weight: 600;
+    font-size: 18px;
+    color: darkslategray;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
   .stepItem {
     height: 25vh !important;
   }
   .stepDesc {
     padding-bottom: 50px;
     padding-top: 20px;
+  }
+  .selectItem {
+    width: 60vw;
+  }
+  .dot {
+    height: 25px;
+    width: 25px;
+    background-color: #f0dff6;
+    border-radius: 50%;
+    display: inline-block;
   }
   
