@@ -8,9 +8,9 @@ window.addItem = addItem;
 var open = false;
 var setOpen = false;
 
-const handleClick = () => {
-  setOpen(true);
-};
+// const handleClick = () => {
+//   setOpen(true);
+// };
 
 const handleClose = (event, reason) => {
   if (reason === "clickaway") {

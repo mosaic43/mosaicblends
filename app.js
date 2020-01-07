@@ -5,29 +5,29 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const users = require('./routes/users');
 const NewPool = require('pg').Pool
-const newpool = new NewPool ({
-    user: 'xwzwfabsisqehx',
-    host: 'ec2-174-129-33-187.compute-1.amazonaws.com',
-    database: 'd43qkd1o4m0qim',
-    password: '81edfa265e7a0d8d816aaaae41c6723bcdb4f6f00865a0670155ce4246af5bea',
-    port: 5432,
-})
 // const newpool = new NewPool ({
-//   user: 'chantee',
-//   host: 'localhost',
-//   database: 'remedies',
-//   password: '',
-//   port: 5432,
+//     user: 'xwzwfabsisqehx',
+//     host: 'ec2-174-129-33-187.compute-1.amazonaws.com',
+//     database: 'd43qkd1o4m0qim',
+//     password: '81edfa265e7a0d8d816aaaae41c6723bcdb4f6f00865a0670155ce4246af5bea',
+//     port: 5432,
 // })
+const newpool = new NewPool ({
+  user: 'chantee',
+  host: 'localhost',
+  database: 'remedies',
+  password: '',
+  port: 5432,
+})
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require("cors");
-const db = require('./queries') 
+const db = require('./queries');
 
-const { Pool, Client } = require('pg')
-const connectionString = 'postgres://xwzwfabsisqehx:81edfa265e7a0d8d816aaaae41c6723bcdb4f6f00865a0670155ce4246af5bea@ec2-174-129-33-187.compute-1.amazonaws.com:5432/d43qkd1o4m0qim'
 // const { Pool, Client } = require('pg')
-// const connectionString = 'postgressql://postgres:postgres@localhost:5432/remedies'
+// const connectionString = 'postgres://xwzwfabsisqehx:81edfa265e7a0d8d816aaaae41c6723bcdb4f6f00865a0670155ce4246af5bea@ec2-174-129-33-187.compute-1.amazonaws.com:5432/d43qkd1o4m0qim'
+const { Pool, Client } = require('pg')
+const connectionString = 'postgressql://postgres:postgres@localhost:5432/remedies'
 
 const client = new Client({
     connectionString: connectionString
