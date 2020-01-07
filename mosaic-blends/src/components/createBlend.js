@@ -4,6 +4,9 @@ import Select from "react-select";
 import { carrierOils } from "./../data/data.js";
 import { addins } from "./../data/data.js";
 import { essentialOils } from "./../data/data.js";
+// import { containers } from "./../data/data.js";
+import TextField from "@material-ui/core/TextField";
+import CardList from "./CardList";
 
 const MyStep = ({ children }) => (
   <div className="p-2 text-center">{children}</div>
@@ -23,7 +26,8 @@ export default class createBlend extends React.Component {
     value: "",
     carriers: [],
     essentials: [],
-    addons: []
+    addons: [],
+    container: []
   };
 
   handleOnChangeCarriers(value) {
@@ -34,6 +38,9 @@ export default class createBlend extends React.Component {
   }
   handleOnChangeAddons(value) {
     this.setState({ addons: value });
+  }
+  handleOnChangeContainers(value) {
+    this.setState({ container: value });
   }
   handleChange = e => this.setState({ value: e.target.value });
 
@@ -47,27 +54,50 @@ export default class createBlend extends React.Component {
     return (
       <div className="wizardContainer">
         <span className="display-4 text-center title">
-          <i className="fas fa-flask" /> Blend Lab
+          Blend Lab <i className="fas fa-magic" />
         </span>
 
         <Wizard step={this.state.step} onChange={this.handleStep}>
           <Step title="1" description="Getting Started">
             <div className="stepItem mt-1 text-center">
-              <div className="stepDesc">Let's Get Started With Your Blend!</div>
-              <div className="input-group selectItem">
-                <div className="input-group-prepend">
-                  <span className="input-group-text" id="basic-addon3">
-                    Blend Name:
-                  </span>
-                </div>
-                <input
-                  type="text"
-                  className="form-control selectItem col-xs-8"
-                  aria-describedby="basic-addon3"
-                  value={value}
-                  onChange={this.handleChange}
+              <div className="stepDesc flex">
+                <i
+                  className="fas fa-flask"
+                  style={{
+                    color: "darkgreen",
+                    transform: "rotateY(0deg) rotate(30deg)",
+                    transition: "transform 2s",
+                    paddingRight: "8px",
+                    fontSize: "24px"
+                  }}
                 />
+                Let's Get Started With Your Blend!{" "}
               </div>
+              <center>
+                <div className="input-group selectItem text-center">
+                  <form noValidate autoComplete="off">
+                    <TextField
+                      required
+                      id="outlined-helperText"
+                      label="Type Blend Name"
+                      helperText="Blend Name"
+                      value={value}
+                      onChange={this.handleChange}
+                    />
+                  </form>
+                  <CardList />
+                  {
+                    // <input
+                    //   type="text"
+                    //   className="form-control selectItem col-xs-8"
+                    //   aria-describedby="basic-addon3"
+                    //   options={containers}
+                    //   value={this.state.container}
+                    //   onClick={this.handleOnChangeContainers.bind(this)}
+                    // />
+                  }
+                </div>
+              </center>
             </div>
           </Step>
 
@@ -102,10 +132,10 @@ export default class createBlend extends React.Component {
               <Select
                 isMulti
                 isSearchable
-                placeholder="Carrier Oils"
+                placeholder="Essential Oils"
                 options={essentialOils}
                 className="basic-multi-select"
-                classNamePrefix="Carrier Oils"
+                classNamePrefix="Essential Oils"
                 onChange={this.handleOnChangeEssentials.bind(this)}
                 value={this.state.essentials}
               />
@@ -140,35 +170,8 @@ export default class createBlend extends React.Component {
             </div>
             <div>
               <div className="blendname text-center">Blend Name: {value}</div>
-              {/* <Select
-                isMulti
-                isSearchable
-                value={this.state.carriers}
-                options={carrierOils}
-                className="basic-multi-select"
-                classNamePrefix="Carrier Oils"
-                defaultValue={this.state.carriers}
-              />
-              <Select
-                isMulti
-                isSearchable
-                value={this.state.essentials}
-                options={essentialOils}
-                className="basic-multi-select"
-                classNamePrefix="Essential Oils"
-                defaultValue={this.state.essentials}
-              />
-              <Select
-                isMulti
-                isSearchable
-                value={this.state.addons}
-                options={addins}
-                className="basic-multi-select"
-                classNamePrefix="Add-Ons"
-                defaultValue={this.state.addons}
-              /> */}
               <div className="row">
-                <div className="col-4">
+                <div className="col-3">
                   <div className="oiltype">Carrier Oils</div>
                   <ul className="listItem">
                     {this.state.carriers.map(function(carrier, index) {
@@ -180,7 +183,7 @@ export default class createBlend extends React.Component {
                     })}
                   </ul>
                 </div>
-                <div className="col-4">
+                <div className="col-3">
                   <div className="oiltype">Essential Oils</div>
                   <ul className="listItem">
                     {this.state.essentials.map(function(essential, index) {
@@ -192,7 +195,7 @@ export default class createBlend extends React.Component {
                     })}
                   </ul>
                 </div>
-                <div className="col-4">
+                <div className="col-3">
                   <div className="oiltype">Add-Ons</div>
                   <ul className="listItem">
                     {this.state.addons.map(function(addon, index) {
@@ -202,6 +205,18 @@ export default class createBlend extends React.Component {
                         </li>
                       );
                     })}
+                  </ul>
+                </div>
+                <div className="col-3">
+                  <div className="oiltype">Container</div>
+                  <ul className="listItem">
+                    {/* {this.state.container.map(function(containers, index) {
+                      return (
+                        <li className="listItems" key={index}>
+                          {containers.value}
+                        </li>
+                      );
+                    })} */}
                   </ul>
                 </div>
               </div>

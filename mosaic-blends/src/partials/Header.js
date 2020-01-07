@@ -1,8 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Badge from "@material-ui/core/Badge";
+import store from "./../store/index";
+import { addItem } from "./../actions/index";
+import { connect } from "react-redux";
 
-export default class Header extends React.Component {
+window.store = store;
+window.addItem = addItem;
+
+store.subscribe(() => {
+  console.log(store.getState().items.length);
+});
+const mapStateToProps = state => {
+  return { items: state.items };
+};
+
+class Header extends React.Component {
   render() {
+    const cartCounter = store.getState().items.length;
+
     return (
       <div className="navbar navHome">
         <div className="row">
@@ -22,19 +38,6 @@ export default class Header extends React.Component {
                     id="navbarSupportedContent"
                   >
                     <ul className="navbar-nav mr-auto">
-                      <li className="nav-item">
-                        <Link to="/Wizard">
-                          <div
-                            className="nav-link"
-                            to="/GettingStarted"
-                            role="button"
-                            aria-haspopup="false"
-                            aria-expanded="false"
-                          >
-                            Getting Started
-                          </div>
-                        </Link>
-                      </li>
                       <li className="nav-item">
                         <Link to="/Wizard">
                           <div
@@ -73,21 +76,39 @@ export default class Header extends React.Component {
                           </div>
                         </Link>
                       </li>
+                      <li className="nav-item">
+                        <Link to="/start">
+                          <div
+                            className="nav-link"
+                            role="button"
+                            aria-haspopup="false"
+                            aria-expanded="false"
+                          >
+                            About Us
+                          </div>
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/start">
+                          <div
+                            className="nav-link"
+                            role="button"
+                            aria-haspopup="false"
+                            aria-expanded="false"
+                          >
+                            Sign Up
+                          </div>
+                        </Link>
+                      </li>
                     </ul>
-                    <form className="form-inline my-2 my-lg-0">
-                      <input
-                        className="form-control mr-sm-2"
-                        type="search"
-                        placeholder="Search"
-                        aria-label="Search"
-                      />
-                      <button
-                        className="btn btn-outline-success my-2 my-sm-0"
-                        type="submit"
-                      >
-                        Search
-                      </button>
-                    </form>
+                    <div>
+                      <Badge badgeContent={cartCounter} color="primary">
+                        <i className="fas fa-shopping-cart cartIcon fa-2x" />
+                      </Badge>
+                    </div>
+                    <div>
+                      <i className="fas fa-user-circle cartIcon fa-2x" />
+                    </div>
                   </div>
                 </nav>
               </div>
@@ -98,3 +119,4 @@ export default class Header extends React.Component {
     );
   }
 }
+export default connect(mapStateToProps)(Header);
