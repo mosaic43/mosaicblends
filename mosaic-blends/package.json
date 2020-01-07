@@ -18,9 +18,7 @@
     "save": "^2.4.0"
   },
   "scripts": {
-    "start": "node app.js",
-    "server": "node app.js",
-    "client": "npm start --prefix mosaic-blends",
+    "client": "npm start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
