@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "react-scripts start",
     "server": "nodemon ./bin/www",
     "client": "npm start --prefix mosaic-blends",
     "build": "npm build",
