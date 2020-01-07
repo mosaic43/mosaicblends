@@ -6,7 +6,7 @@ const pool = new Pool ({
     host: 'localhost',
     database: 'remedies',
     password: '',
-    port: 5432,
+    port: process.env.PORT || 5432,
 })
 
 const getUsers = (request, response) => { 
